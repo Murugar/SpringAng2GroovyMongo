@@ -3,16 +3,21 @@ Spring Boot Angular2 Mongo Groovy
 
 Instructions
 
-First a npm install from src/main/js  
+From src/main/js  
+npm install    
 
-then a npm start for Dev Mode  
-npm test for Angular2 Tests  
+For Dev Mode -- Client Side  
+npm start  
+Client Side (Angular2 JS) -- Tests  
+npm test    
 
-Server on 8080  
+Ensure you have Mongo running on 27017  
+
+To Start Server on 8080  
 mvn clean install spring-boot:run  
 
-to run all on 8080 as a Single Jar  
+To run Whole WebApp on 8080, as a Single Jar  
 mvn clean install spring-boot:run  
 
-Run Tests on Server  
+To run Tests on Server  
 mvn test  
