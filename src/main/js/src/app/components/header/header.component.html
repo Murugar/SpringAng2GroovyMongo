@@ -1,0 +1,45 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <button class="navbar-toggler hidden-sm-up" type="button"
+          data-toggle="collapse" data-target="#exCollapsingNavbar2"
+          aria-controls="exCollapsingNavbar2" aria-expanded="false"
+          aria-label="Toggle navigation">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <a class="navbar-brand" [routerLink]="['/']">Sprang2 App</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item home" routerLinkActive="active" *ngIf="isSignedIn">
+        <a class="nav-link" [routerLink]="['/home']">Home</a>
+      </li>
+      <li class="nav-item top" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}" *ngIf="!isSignedIn">
+        <a class="nav-link" [routerLink]="['/']">Home</a>
+      </li>
+      <li class="nav-item users" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}" *ngIf="isSignedIn">
+        <a class="nav-link" [routerLink]="['/users']">Users</a>
+      </li>
+      <li class="nav-item help" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/help']">Help</a>
+      </li>
+      <li class="nav-item login" routerLinkActive="active" *ngIf="!isSignedIn">
+        <a class="nav-link" [routerLink]="['/login']">Sign In</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav pull-sm-right" *ngIf="isSignedIn">
+      
+      <li class="nav-item profile" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" [routerLink]="['/users/me']">{{lname()}}</a>
+      </li>
+      <li class="nav-item settings" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" [routerLink]="['/users/me/edit']">Profile</a>
+      </li>
+      <li class="nav-item logout">
+        <a class="nav-link" href="#"
+           (click)="signoff(); $event.preventDefault()">Sign Off</a>
+      </li>
+    </ul>
+  </div>
+</nav>

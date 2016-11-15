@@ -1,0 +1,27 @@
+<h3 *ngIf="feed.length > 0">MicroPost Feed</h3>
+<h3 *ngIf="feed.length == 0">No MicroPosts </h3>
+
+<ol class="feed list-unstyled">
+
+  
+  <li *ngFor="let f of feed">
+    <a [routerLink]="['/users', f.user.uid]">
+      <mpt-gravatar [email]="f.user.email" [size]="60"
+                    [alt]="f.user.name"></mpt-gravatar>
+    </a>
+  
+    
+    <span class="user text-info">
+      <a class="text-info" [routerLink]="['/users', f.user.uid]">{{f.user.name}}</a>
+    </span>
+    <span class="content text-danger">Title : {{f.title}}</span>
+    <span class="content text-primary">Type : {{f.type}}</span>
+    <br/>
+    <span class="content text-warning">Content : {{f.content}}</span>
+    <span class="timestamp text-success">Posted less than {{f.createdAt | timeAgo}}.</span>
+    <br/>
+    <a *ngIf="f.isMyPost" class="delete text-danger" href="#"
+       (click)="delete(f.id); $event.preventDefault()">Delete</a>
+  </li>
+
+</ol>

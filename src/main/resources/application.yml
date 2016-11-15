@@ -1,0 +1,45 @@
+spring:
+  main:
+    banner-mode: 'OFF'
+  profiles:
+    active: dev4
+server.error.whitelabel.enabled: false    
+security:
+  basic:
+    enabled: false
+endpoints:
+  enabled: false
+  health.enabled: true
+management:
+  context-path: /manage
+app:
+ jwt:
+  secret: qwerty  
+---
+spring:
+    profiles: test
+    data:
+        mongodb:
+            database: test
+            host: localhost
+            port: 27017
+            uri: mongodb://127.0.0.1:27017/test
+            repositories.enabled : true
+    datasource :
+      initialize : false      
+flyway:
+  enabled: false            
+---   
+spring:
+    profiles: dev4
+    data:
+        mongodb:
+            database: spang2
+            host: localhost
+            port: 27017
+            uri: mongodb://127.0.0.1:27017/spang2
+            repositories.enabled : true
+    datasource :
+      initialize : false      
+flyway:
+  enabled: false            

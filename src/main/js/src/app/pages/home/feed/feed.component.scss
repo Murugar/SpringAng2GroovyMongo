@@ -1,0 +1,25 @@
+@import 'src/css/index';
+
+.feed li {
+  @extend %list_1;
+  line-height: 20px;
+}
+
+mpt-gravatar {
+  float: left;
+  margin-right: $margin-xsmall;
+}
+
+.content {
+  display: block;
+}
+
+.title {
+  display: block;
+}
+
+
+
+.timestamp {
+  color: $weak-text-color;
+}

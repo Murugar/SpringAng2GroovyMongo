@@ -1,0 +1,34 @@
+
+<div >
+
+  <h3  *ngIf="userStats?.micropostCnt > 0" >MicroPosts ({{userStats?.micropostCnt}})  </h3>
+  
+  <h3  *ngIf="userStats?.micropostCnt == 0" >Zero MicroPosts </h3>
+ 
+  
+  <ol class="posts list-unstyled" >
+    <li *ngFor="let p of posts">
+     <span class="text-success">Type : {{p.type}}</span>
+     <span class="content text-success">Title : {{p.title}}</span>
+      <span class="content text-warning">Content : {{p.content}}</span>
+      <span class="timestamp text-primary">Posted Around : {{p.createdAt | timeAgo}}.</span>
+      <br/>
+      <span>
+      <a *ngIf="p.isMyPost" href="#" class="delete text-danger"
+         (click)="delete(p.id); $event.preventDefault()">Delete</a>
+      </span>  
+    </li>
+  </ol>
+
+<template [ngIf]="posts.length > 4">
+ 
+  <button *ngIf="2 > 1" class="btn btn-warning moreBtn" type="button" (click)="loadMore()"
+          [disabled]="noMorePosts">More
+  </button>
+  
+</template> 
+
+  
+
+</div>
+

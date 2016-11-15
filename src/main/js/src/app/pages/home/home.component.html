@@ -1,0 +1,17 @@
+<div class="row">
+
+  <aside class="col-md-4">
+    <mpt-user-stats #us [userId]="'me'"></mpt-user-stats>
+    <section>
+      <mpt-micropost-new (created)="f.list(); us.ngOnInit()"></mpt-micropost-new>
+    </section>
+  </aside>
+
+  <div class="col-md-8">
+   
+    <mpt-feed #f (deleted)="us.ngOnInit()"></mpt-feed>
+  </div>
+
+
+
+</div>

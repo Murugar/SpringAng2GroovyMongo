@@ -1,0 +1,19 @@
+<h1>All Users</h1>
+
+<ul class="users list-unstyled">
+  <li *ngFor="let u of users">
+    <mpt-gravatar [email]="u.email" [size]="60" [alt]="u.name"></mpt-gravatar>
+    <a [routerLink]="['/users', u.uid]">{{u.name}}</a>
+    <br/>
+    <br/>
+    <a href="#" *ngIf="!u.me"  class="delete text-danger"
+         (click)="remove(u.uid); $event.preventDefault()">Delete</a>
+  </li>
+</ul>
+
+<div class="clearfix">
+  <mpt-pager class="pull-left"
+             (pageChanged)="onPageChanged($event.page)"
+             [totalPages]="totalPages"
+             [currentPage]="page"></mpt-pager>
+</div>

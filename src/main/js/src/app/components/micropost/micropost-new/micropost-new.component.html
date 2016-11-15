@@ -1,0 +1,14 @@
+<form class="micropost_new" (submit)="create(content, title); $event.preventDefault()">
+  <div class="form-group">
+     <input
+      type="text"
+      class="form-control"
+      id="titleInput"
+      placeholder="title.."
+      maxlength="30"
+      #title
+      />
+    <textarea class="form-control" rows="5" #content placeholder="type a new micropost here..."></textarea>
+   </div>
+  <button class="btn btn-lg btn-primary" type="submit">Post</button>
+</form>

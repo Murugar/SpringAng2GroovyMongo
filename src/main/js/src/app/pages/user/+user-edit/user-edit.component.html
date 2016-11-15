@@ -1,0 +1,94 @@
+<h1>Update Profile</h1>
+
+<form [formGroup]="myForm" (submit)="onSubmit(myForm.value)" novalidate>
+
+  <div class="form-group"
+       [class.has-danger]="!name.valid && name.touched">
+    <label class="col-form-label" for="nameInput">Name</label>
+    <input
+      type="text"
+      class="form-control form-control-danger"
+      id="nameInput"
+      placeholder="type name here..."
+      maxlength="30"
+      formControlName="name"/>
+    <div *ngIf="name.hasError('required') && name.touched"
+         class="form-control-feedback">Name is required
+    </div>
+    <div *ngIf="name.hasError('minlength') && name.touched"
+         class="form-control-feedback">Name must be longer than 4 chars.
+    </div>
+  </div>
+
+    <div class="form-group"
+       [class.has-danger]="!fname.valid && fname.touched">
+    <label class="col-form-label" for="fullInput">Full Name</label>
+    <input
+      type="text"
+      class="form-control form-control-danger"
+      id="fnameInput"
+      placeholder="type fullname here..."
+      maxlength="60"
+      formControlName="fname"/>
+    <div *ngIf="fname.hasError('required') && fname.touched"
+         class="form-control-feedback">Full Name is required
+    </div>
+    <div *ngIf="fname.hasError('pattern') && fname.touched"
+         class="form-control-feedback">Invalid format
+    </div>
+  </div>
+   
+
+  <div class="form-group"
+       [class.has-danger]="!email.valid && email.touched">
+    <label class="col-form-label" for="emailInput">Email</label>
+    <input
+      type="email"
+      class="form-control form-control-danger"
+      id="emailInput"
+      placeholder="type email here..."
+      maxlength="30"
+      formControlName="email"/>
+    <div *ngIf="email.hasError('required') && email.touched"
+         class="form-control-feedback">Email is required
+    </div>
+    <div *ngIf="email.hasError('pattern') && email.touched"
+         class="form-control-feedback">Invalid format
+    </div>
+  </div>
+
+  <div class="form-group"
+       [class.has-danger]="!password.valid && password.touched">
+    <label class="col-form-label" for="passwordInput">Password</label>
+    <input
+      type="password"
+      class="form-control form-control-danger"
+      id="passwordInput"
+      placeholder="type password here ..."
+      maxlength="100"
+      formControlName="password"/>
+    <div *ngIf="password.hasError('minlength') && password.touched"
+         class="form-control-feedback">Password must be longer than 6 chars.
+    </div>
+  </div>
+
+  <div class="form-group"
+       [class.has-danger]="!passwordConfirmation.valid && passwordConfirmation.touched">
+    <label class="col-form-label" for="passwordConfirmationInput">Confirm
+      Password</label>
+    <input
+      type="password"
+      class="form-control form-control-danger"
+      id="passwordConfirmationInput"
+      placeholder="type confirm password here ..."
+      formControlName="passwordConfirmation"/>
+    <div
+      *ngIf="passwordConfirmation.hasError('matched') && passwordConfirmation.touched"
+      class="form-control-feedback">Doesn't Match
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+  <button type="cancel" class="btn btn-lg btn-warning" (click)="cancel()" >Cancel</button>
+  
+</form>
